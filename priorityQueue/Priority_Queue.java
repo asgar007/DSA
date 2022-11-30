@@ -63,8 +63,11 @@ public class Priority_Queue<T> {
 			if(heap.get(leftChildIndex).priority < heap.get(minIndex).priority) {
 				minIndex = leftChildIndex;
 			}
-			if(heap.get(rightChildIndex).priority < heap.get(minIndex).priority) {
+			if(rightChildIndex < heap.size() && (heap.get(rightChildIndex).priority < heap.get(minIndex).priority)) {
 				minIndex = rightChildIndex;
+			}
+			if(minIndex == parentIndex) {
+				break;
 			}
 			//swap 
 			Element<T> temp = heap.get(minIndex);
