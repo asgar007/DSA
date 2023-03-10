@@ -1,12 +1,89 @@
 package binaryTrees;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BinaryTreeUse {
 	
+	public static ArrayList<Integer> rootToNodePath(BinaryTreeNode<Integer> root, int x){
+		if(root == null)
+			return null;
+		if(root.data == x) {
+			ArrayList<Integer> ans  = new ArrayList<Integer>();
+			ans.add(root.data);
+			return ans;
+		}
+		//if not look for left and right tree
+		ArrayList<Integer> leftTreePath = rootToNodePath(root.left, x);
+		//check whether you get path or not if yes apend the root data
+		if(leftTreePath != null) {
+			leftTreePath.add(root.data);
+			return leftTreePath;
+		}
+		ArrayList<Integer> rightTreePath = rootToNodePath(root.right, x);
+		//check whether you get path or not if yes apend the root data
+		if(rightTreePath != null) {
+			rightTreePath.add(root.data);
+			return rightTreePath;
+		}
+		return null;
+	}
+	
+	public static IsBSTReturn isBSTBetter(BinaryTreeNode<Integer> root) {
+		if(root == null) {
+			IsBSTReturn ans = new IsBSTReturn(Integer.MIN_VALUE, Integer.MAX_VALUE, true);
+			return ans;
+		}
+		IsBSTReturn leftAns = isBSTBetter(root.left);
+		IsBSTReturn rightAns = isBSTBetter(root.right);
+		boolean isBST = true;
+		if(leftAns.max >= root.data) {
+			isBST = false;
+		}
+		if(rightAns.min < root.data) {
+			isBST = false;
+		}
+		if(!leftAns.isBST)
+			isBST = false;
+		if(!rightAns.isBST)
+			isBST = false;
+		int min = Math.min(root.data, Math.min(leftAns.min, rightAns.min));
+		int max = Math.max(root.data, Math.max(leftAns.max, rightAns.max));
+		IsBSTReturn ans = new IsBSTReturn(max, min, isBST);
+		
+		return ans;
+	}
+	
+	public static boolean isBST(BinaryTreeNode<Integer> root) {
+		if(root == null)
+			return true;
+		//max in left tree should < root data
+		int maxInLeftTree = largest(root.left);
+		if(maxInLeftTree >= root.data)
+			return false;
+		//min in right tree should > root data
+		int minInRightTree = minimum(root.right);
+		if(minInRightTree < root.data)
+			return false;
+		// left and right tree should be bST as well
+		boolean isLeftBST = isBST(root.left);
+		boolean isRightBST = isBST(root.right);
+		return (isLeftBST && isRightBST);
+	}
+	
+	private static int minimum(BinaryTreeNode<Integer> root) {
+		if(root == null)
+			return Integer.MAX_VALUE;
+		int leftMinimun = minimum(root.left);
+		int rightMinimum = minimum(root.right);
+		int min = Math.min(root.data, Math.min(leftMinimun, rightMinimum));
+		return min;
+	}
+
+
 	public static int largest(BinaryTreeNode<Integer> root) {
 		if(root == null)
-			return -1;
+			return Integer.MIN_VALUE;
 		int leftLargest = largest(root.left);
 		int rightLargest = largest(root.right);
 		int max = Math.max(root.data, Math.max(leftLargest, rightLargest));
@@ -33,7 +110,7 @@ public class BinaryTreeUse {
 			return 0;
 		int leftNodes = numNodes(root.left);
 		int rightNodes = numNodes(root.right);
-		return 1 + leftNodes + rightNodes;
+		return 1 + leftNodes + rightNodes; // adding 1 is very imp
 	}
 	
 	public static BinaryTreeNode<Integer> takeInputTreeBetter(boolean isRoot, int parentData, boolean isLeft){
@@ -116,7 +193,12 @@ public class BinaryTreeUse {
 		printTreeDetailed(root);
 		System.out.println("Total nodes are: " + numberOfNodes);
 		System.out.println("Largest : " + largest(root));
-		
+		IsBSTReturn ans = isBSTBetter(root);
+		System.out.println("is BST->" + ans.isBST);
+		ArrayList<Integer> path = rootToNodePath(root, 9);
+		for(int i : path) {
+			System.out.print("Path from x to node is:" + i + " ");
+		}
 	}
 
 }

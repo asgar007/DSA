@@ -16,14 +16,15 @@ public class NodeUse {
 		return n1;
 	}
 	
-	public static Node<Integer> takeInput(){     //o(n)
+	public static Node<Integer> takeInput(){     //O(n)
 		Scanner sc = new Scanner(System.in);
 		int data = sc.nextInt();
 		Node<Integer> head = null, tail = null;
 		while(data != -1) {
 			Node<Integer> currentNode = new Node<Integer>(data);
 			if(head == null) {
-				head = currentNode;             //make this node as first node
+				//make this node as head node and tail node
+				head = currentNode;             
 				tail = currentNode;
 			}
 			else {
@@ -36,7 +37,7 @@ public class NodeUse {
 		return head;
 	}
 	
-	public static Node<Integer> insertNode(Node<Integer> head, int elem, int pos) {
+	public static Node<Integer> insertNode(Node<Integer> head, int elem, int pos) { 
 		Node<Integer> nodeToBeInserted = new Node<Integer>(elem);
 		if(pos == 0) {
 			nodeToBeInserted.next = head;
@@ -46,11 +47,12 @@ public class NodeUse {
 		else {
 			Node<Integer> prev = head;
 			int count = 0;
-			while(count < pos-1 && prev!=null) {   // prev!=null -> for null pointer exception
+			while(count < pos-1 && prev!=null) {   // prev!=null -> for null pointer exception coz pos > LL length
 				count++;
 				prev = prev.next;
 			}
 			if(prev!=null) {
+				//make b4 break
 				nodeToBeInserted.next = prev.next;
 				prev.next = nodeToBeInserted;
 			}
@@ -73,7 +75,7 @@ public class NodeUse {
 			head.next = temp;
 			return head;
 		}
-	}
+	} 
 	
 	public static Node<Integer> deleteNode(Node<Integer> head, int pos){
 		
