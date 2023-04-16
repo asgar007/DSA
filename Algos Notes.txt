@@ -1,0 +1,2 @@
+for finding mid point -->  pointer slow and fast;
+

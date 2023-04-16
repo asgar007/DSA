@@ -5,7 +5,7 @@ public class BinSearch {
 	int n;
 
 	public BinSearch(int nn) {
-		n = nn;
+		n = nn; //asignment operator
 		arr = new int[n];
 	}
 
@@ -29,8 +29,8 @@ public class BinSearch {
 				}
 			}
 		}
-
 	}
+	
 	int search(int element, int low, int high) {
 		// Repeat until the pointers low and high meet each other
 	    while (low <= high) {
@@ -52,14 +52,15 @@ public class BinSearch {
 	      else
 	        high = mid - 1;
 	    }
-
 	    return -1;
 	}
+	
 	void print() {
 		for(int i=0; i<arr.length; i++) {
 			System.out.print(arr[i] + " ");
 		}
 	}
+	
 	public static void main(String[] args) {
 		BinSearch ob = new BinSearch(5);
 		ob.fillArray();
@@ -73,4 +74,5 @@ public class BinSearch {
 			System.out.println("found at index : "+ ans);
 		}
 	}
+	
 }

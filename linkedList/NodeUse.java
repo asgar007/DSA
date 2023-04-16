@@ -61,7 +61,7 @@ public class NodeUse {
 	}
 	
 	private static Node<Integer> insertRecursively(Node<Integer> head, int elem, int pos) {
-		if(head == null && pos > 0)
+		if(head == null && pos > 0)// pos > 0 condition for if empty LL passed and pos = 0 then it should work properly
 			return head;
 		
 		if(pos == 0) {
@@ -71,8 +71,8 @@ public class NodeUse {
 			return nodeToBeInserted;
 		}
 		else {
-			Node<Integer> temp = insertRecursively(head.next, elem, pos-1);
-			head.next = temp;
+			Node<Integer> smallHead = insertRecursively(head.next, elem, pos-1);
+			head.next = smallHead;// these  lines is imp coz you need to connect the original head in LL as well
 			return head;
 		}
 	} 
@@ -105,8 +105,7 @@ public class NodeUse {
 			Node<Integer> smallNode = deleteNodeRecursively(head.next, pos-1);
 			head.next = smallNode;
 			return head;
-		}
-		
+		}	
 	}
 	
 	private static Node<Integer> removeDuplicacy(Node<Integer> head) {
@@ -157,7 +156,7 @@ public class NodeUse {
 			return head;
 		else {
 			Node<Integer> smallReverseNode = reverseRecursively(head.next);
-			head.next.next = head;
+			head.next.next = head; // these  lines is very imp.
 			head.next = null;
 			return smallReverseNode;
 		}
