@@ -9,5 +9,8 @@ public class MainClass {
 		boolean  ans = paranthesis.isBalanced("(())");
 		System.out.println(ans);
 		//------------------------------------
+		
+		RedundantBracket check = new RedundantBracket();
+		System.out.println(check.checkRedundantBracket("(d+c)"));
 	}
 }

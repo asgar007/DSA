@@ -1,7 +1,7 @@
 package string;
 
 import java.util.ArrayList;
-
+// palindrome, permutation, powerset==subsequence
 public class StringExamples {
 	public static void main(String[] args) {
 		
@@ -9,7 +9,8 @@ public class StringExamples {
 	    String str2 = "I love coding"; 
 	    boolean check=(str2=="I love coding");
 	    System.out.println((str1 == str2) + " " + str1.equals(str2)+" " + check);
-
+	    
+	    //remove special characters
 	    String str = "c1 O$d@eeD o1c";
 	    String s = "";
         for(int i=0; i<str.length(); i++){
@@ -21,8 +22,11 @@ public class StringExamples {
         System.out.println(s);
 	    System.out.println(palindrome(s, 0, s.length()-1));
 	    String a = "abc";
-//	    powerset(a, 0, "");
+	    powerset(a, 0, "");
+	    System.out.println();
 	    permutation(a, 0, a.length()-1);
+	    System.out.println();
+	    subSequence("abc", "");
 	}
 	
 	//Palindrome recursively
@@ -48,7 +52,7 @@ public class StringExamples {
 		powerset(s, index+1, ans);
 	}
 	
-	// permutation
+	// permutation --> refer for this how recursion works in loop : https://www.youtube.com/watch?v=QKkHCS5bq0I&list=PL-Jc9J83PIiE-181crLG1xSIWhTGKFiMY&index=20
 	public static void permutation(String s, int l, int r) {
 		if(l == r) {
 			System.out.print(s + " ");
@@ -68,4 +72,14 @@ public class StringExamples {
 		return String.copyValueOf(sArray);
 	}
 	
+	public static void subSequence(String s, String ans) {
+		
+		if(s.length() == 0) {
+			System.out.print(ans + " ");
+			return;
+		}
+		char ch = s.charAt(0);
+		subSequence(s.substring(1), ans + ch);
+		subSequence(s.substring(1), ans+"");
+	}
 }

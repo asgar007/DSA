@@ -18,12 +18,17 @@ public class Recursion2 {
 	public static String replacePi(String s) {
 		if(s.length() <=1)
 			return s;
-		String smallString = replacePi(s.substring(1));
+		
 		if(s.charAt(0) == 'p' && s.charAt(1) == 'i') {
-			return 3.14+smallString.substring(1);
+			//call recursion on string length n-2
+			String smallString = replacePi(s.substring(2));
+			return "3.14"+smallString;
 		}
-		else
+		else {
+			//call recursion on string length n-1
+			String smallString = replacePi(s.substring(1));
 			return s.charAt(0)+smallString;
+		}
 	}
 	//--------------------------------------------------
 	// binary search
@@ -41,13 +46,27 @@ public class Recursion2 {
 		}
 	}
 	//--------------------------------------------------
+//	Given a string S, remove consecutive duplicates from it recursively.
+	public static String removeConsecutiveDuplicates(String s) {
+		// Write your code here
+		if(s.length() <=1)
+            return s;
+        String smallString = removeConsecutiveDuplicates(s.substring(1));
+        if(s.charAt(0) == s.charAt(1)){
+            return smallString;
+        }
+        else{
+            return s.charAt(0)+smallString;
+        }
+	}
+	//---------------------------------------------------
 	
 	public static void main(String[] args) {
 		String s = "axbxcx";
 		System.out.println(replaceChar(s, 'x', 'y'));
-		System.out.println(replacePi("appicdpig"));
+		System.out.println(replacePi("appicdpipig"));
+		System.out.println(removeConsecutiveDuplicates("appicdpiiipig"));
 		int[] array = {4,8,4,9,12,0,5};
 		System.out.println(binarySearch(array, 0, array.length-1, 9));
 	}
-
 }

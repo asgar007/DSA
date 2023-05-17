@@ -54,7 +54,7 @@ public class BinaryTreeUse {
 		return ans;
 	}
 	
-	public static boolean isBST(BinaryTreeNode<Integer> root) {
+	public static boolean isBST(BinaryTreeNode<Integer> root) { // 3 condition should satisfy 
 		if(root == null)
 			return true;
 		//max in left tree should < root data
@@ -79,7 +79,6 @@ public class BinaryTreeUse {
 		int min = Math.min(root.data, Math.min(leftMinimun, rightMinimum));
 		return min;
 	}
-
 
 	public static int largest(BinaryTreeNode<Integer> root) {
 		if(root == null)

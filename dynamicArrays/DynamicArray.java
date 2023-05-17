@@ -9,7 +9,6 @@ public class DynamicArray {
 	}
 	
 	
-	
 	public void add(int n) {
 		if(nextElementIndex == data.length) {
 			doubleCapacity();
