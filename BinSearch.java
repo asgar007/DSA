@@ -74,5 +74,4 @@ public class BinSearch {
 			System.out.println("found at index : "+ ans);
 		}
 	}
-	
 }

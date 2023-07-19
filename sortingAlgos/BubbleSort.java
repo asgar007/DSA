@@ -19,6 +19,7 @@ public class BubbleSort {
 		//base case
 		if(index >= arr.length)
 			return;
+		
 		for(int i=0; i<arr.length; i++) {
 			if(arr[index-1] > arr[index]) {
 				//swap them

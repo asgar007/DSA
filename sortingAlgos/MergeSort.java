@@ -2,7 +2,6 @@ package sortingAlgos;
 
 public class MergeSort {
 	
-	
 	public static void merge(int[] s1, int[] s2, int[] input){
         int j=0;
         int k=0;
@@ -101,4 +100,4 @@ public class MergeSort {
 			System.out.print(i + " ");
 		}
 	}
-}
+}     

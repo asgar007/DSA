@@ -15,7 +15,6 @@ public class Main {
                 else {
                 	return -1;
                 }
-                
             }
             i++;
         }   
