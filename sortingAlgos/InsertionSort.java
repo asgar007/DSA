@@ -1,7 +1,7 @@
 package sortingAlgos;
 
 public class InsertionSort {
-	
+	//assume first element is sorted
 	public static void insertionSort(int arr[]) {
 		for(int i=1; i<arr.length; i++) {
 			for(int j=i-1; j>=0; j--) {
@@ -20,7 +20,7 @@ public class InsertionSort {
 	
 	public static void main(String[] args) {
 //		int[] arr = {4, 5, 1, 2, 3, 1, 84, 1, 39};
-		int[] arr = {5,9,8,1,2};
+		int[] arr = {5,9,8,1,1,2};
 		insertionSort(arr);
 		for(int i: arr) {
 			System.out.print(i + " ");

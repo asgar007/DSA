@@ -236,6 +236,4 @@ public class NodeUse {
 		Node<Integer> head = mergeToSortedLL(head1,head2);
 		printLinkedList(head);
 	}
-
-
 }

@@ -2,7 +2,7 @@ package sortingAlgos;
 
 public class BubbleSort {
 	
-	public static void bubbleSort(int[] arr) {
+	public static void bubbleSort(int[] arr) {//O(n^2)
 		for(int i=0; i<arr.length; i++) {
 			for(int j=1; j<arr.length-i; j++) { // -i do coz last part already sorted
 				if(arr[j-1] > arr[j]) {

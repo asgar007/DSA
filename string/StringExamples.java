@@ -1,7 +1,7 @@
 package string;
 
 import java.util.ArrayList;
-// palindrome, permutation, powerset==subsequence
+// palindrome, permutation, powerset==subsequence, equality, remove special chars
 public class StringExamples {
 	public static void main(String[] args) {
 		
