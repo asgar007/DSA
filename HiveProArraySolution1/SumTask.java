@@ -1,4 +1,4 @@
-package HivePro.arraySolution1;
+package HiveProArraySolution1;
 import java.util.concurrent.RecursiveTask;
 /*
  RecursiveTask is a part of Java's Fork/Join framework,

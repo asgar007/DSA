@@ -1,4 +1,4 @@
-package HivePro.arraySolution1;
+package HiveProArraySolution1;
 
 import java.util.concurrent.ForkJoinPool;
 
