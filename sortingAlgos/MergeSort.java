@@ -91,7 +91,7 @@ public class MergeSort {
 //	}
 	
 	public static void main(String[] args) {
-		int[] arr = {4, 5, 1, 2, 3, 1, 84, 1, 39};
+		int[] arr = {4, 5, 1, 2, 3, 1, 84, 1, -3, 0, 39};
 //		int[] arr = {5,9,8,1,2};
 		
 //		int res[] = mergeSort(arr, 0, arr.length - 1);

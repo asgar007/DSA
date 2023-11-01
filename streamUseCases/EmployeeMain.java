@@ -258,7 +258,6 @@ public class EmployeeMain {
 		Map<String, Double> averageAgeOfMaleAndFemaleEmployee = employeeList.stream()
 				.collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingInt(Employee::getAge)));
 		System.out.println(averageAgeOfMaleAndFemaleEmployee);	
-		
 	}
 
 	private static void method2() {

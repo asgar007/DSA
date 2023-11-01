@@ -2,6 +2,8 @@ package hashmap;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class HashmapUse {
@@ -20,6 +22,39 @@ public class HashmapUse {
 		}
 		return output;
 	}
+	
+	//Remove Duplicates from String maintaining order
+	private static String removeDupliactesMaintaingOrder(String str) {
+		// put everything into hashmap
+		LinkedHashSet<Character> set = new LinkedHashSet<Character>();
+		for(int i=0; i<str.length(); i++) {
+			char ch = str.charAt(i);
+			set.add(ch);
+		}
+		StringBuilder sb = new StringBuilder();
+		for(Character c: set) {
+			sb.append(c);
+		}
+		return sb.toString();
+		
+		// input- ababcdab, output- ababcd
+//		StringBuilder result = new StringBuilder();
+//        Map<Character, Integer> charCount = new HashMap<>();
+//
+//        for (char c : str.toCharArray()) {
+//            charCount.put(c, charCount.getOrDefault(c, 0) + 1);
+//
+//            // Append character to result if its count is less than or equal to 2
+//            if (charCount.get(c) <= 2) {
+//                result.append(c);
+//            }
+//        }
+//
+//        return result.toString();
+    }
+
+	
+	
 	
 	//count characters
 	public static void countCharacters(String s){
@@ -48,5 +83,7 @@ public class HashmapUse {
 		System.out.println();
 		
 		countCharacters("abcdcshs");
+		System.out.println();
+		System.out.println(removeDupliactesMaintaingOrder("ababcdab"));
 	}
 }
